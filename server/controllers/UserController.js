@@ -21,7 +21,7 @@ class UserController{
             console.log(data)
             if(data && bcrypt.compareSync(password, data.password)){
                 console.log('ada')
-                const access_token = jwt.sign({id:data.id, email:data.email}, 'Rahasia')
+                const access_token = jwt.sign({id:data.id, email:data.email}, process.env.JWT_SECREAT)
                 res.status(200).json({success:true, access_token})
             }else{
                 console.log('gak')

@@ -15,9 +15,30 @@ class FoodController{
         .then((data) => {
             res.status(201).json({success:true, data:data})
         }).catch((err) => {
-            console.log(err)
+            next(err)
         });
-    }   
+    }
+    
+    static listFood(req,res,next){
+        Food.findAll({where:{UserId:req.UserId}})
+        .then((data) => {
+            res.status(200).json({succes:true, data:data})
+        }).catch((err) => {
+            next(err)
+        });
+    }
+
+    static deleteFood(res,res,next){
+        Food.destroy()
+        .then((data) => {
+            res.status(200).json({success:true, data:data})
+        }).catch((err) => {
+            next(err)
+        });
+    }
+
+
+
 
 
 }

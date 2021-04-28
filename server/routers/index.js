@@ -9,7 +9,7 @@ router.get('/', (req, res) => {
 
 router.use('/', routesUser)
 
-router.use(authentication)
+// router.use(authentication)
 router.use('/', routesFood)
 
 module.exports = router
